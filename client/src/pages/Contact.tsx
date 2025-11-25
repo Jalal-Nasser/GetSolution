@@ -61,8 +61,21 @@ export default function Contact() {
             <motion.div
               className="mx-auto w-24 h-1 rounded bg-secondary mb-5"
               initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              animate={{
+                scaleX: 1,
+                boxShadow: [
+                  "0 0 0 0 rgba(0,0,0,0)",
+                  "0 0 12px 2px rgba(234, 88, 12, 0.6)",
+                  "0 0 0 0 rgba(0,0,0,0)"
+                ],
+                scaleY: [1, 1.15, 1]
+              }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                boxShadow: { delay: 0.7, duration: 0.8, times: [0, 0.5, 1] },
+                scaleY: { delay: 0.7, duration: 0.8, times: [0, 0.5, 1] }
+              }}
               style={{ transformOrigin: "center" }}
             />
             <p className="text-xl text-muted-foreground" data-testid="text-contact-hero-subtitle">
