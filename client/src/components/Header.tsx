@@ -35,11 +35,11 @@ export function Header() {
               <Link key={link.path} href={link.path} data-testid={`link-nav-${link.label.toLowerCase()}`}>
                 <Button
                   variant="ghost"
-                  className={`relative px-4 ${isActive(link.path) ? "text-foreground" : "text-muted-foreground"}`}
+                  className={`group relative px-4 hover:text-secondary ${isActive(link.path) ? "text-foreground" : "text-muted-foreground"}`}
                   data-testid={`button-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
-                  <span className={`absolute left-3 right-3 -bottom-1 h-[2px] rounded-sm transition-opacity ${isActive(link.path) ? "opacity-100 bg-secondary" : "opacity-0"}`} />
+                  <span className={`absolute left-3 right-3 -bottom-1 h-[2px] rounded-sm transition-opacity ${isActive(link.path) ? "opacity-100 bg-secondary" : "opacity-0 group-hover:opacity-100 group-hover:bg-secondary"}`} />
                 </Button>
               </Link>
             ))}
@@ -67,7 +67,7 @@ export function Header() {
               <Link key={link.path} href={link.path}>
                 <Button
                   variant="ghost"
-                  className={`w-full justify-start ${isActive(link.path) ? "bg-accent/10" : ""}`}
+                  className={`w-full justify-start hover:text-secondary ${isActive(link.path) ? "bg-accent/10" : ""}`}
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
                 >
