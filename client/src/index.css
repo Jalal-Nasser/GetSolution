@@ -27,23 +27,23 @@
   --popover-foreground: 220 13% 13%;
   --popover-border: 220 13% 89%;
   --primary: 221 83% 33%;
-  --primary-foreground: 221 83% 98%;
-  --secondary: 220 13% 88%;
-  --secondary-foreground: 220 13% 13%;
-  --muted: 220 14% 92%;
-  --muted-foreground: 220 13% 40%;
-  --accent: 220 14% 90%;
-  --accent-foreground: 220 13% 13%;
-  --destructive: 0 84% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 160 84% 40%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 0 72% 51%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-  --input: 220 13% 75%;
+  --input: 220 13% 88%;
   --ring: 221 83% 33%;
   --chart-1: 221 83% 33%;
-  --chart-2: 160 84% 25%;
-  --chart-3: 0 84% 45%;
+  --chart-2: 160 84% 40%;
+  --chart-3: 0 72% 51%;
   --chart-4: 280 65% 40%;
   --chart-5: 25 95% 45%;
-  --font-sans: Open Sans, sans-serif;
+  --font-sans: Inter, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem;
@@ -110,17 +110,17 @@
   --popover: 220 13% 12%;
   --popover-foreground: 220 13% 95%;
   --popover-border: 220 13% 16%;
-  --primary: 221 83% 33%;
-  --primary-foreground: 221 83% 98%;
-  --secondary: 220 13% 16%;
-  --secondary-foreground: 220 13% 95%;
+  --primary: 221 83% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 160 84% 45%;
+  --secondary-foreground: 0 0% 100%;
   --muted: 220 14% 14%;
   --muted-foreground: 220 13% 65%;
-  --accent: 220 14% 14%;
-  --accent-foreground: 220 13% 95%;
-  --destructive: 0 84% 45%;
+  --accent: 0 72% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-  --input: 220 13% 30%;
+  --input: 220 13% 24%;
   --ring: 221 83% 50%;
   --chart-1: 221 70% 65%;
   --chart-2: 160 70% 55%;
@@ -168,6 +168,10 @@
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
