@@ -35,7 +35,7 @@ export function Header() {
               <Link key={link.path} href={link.path} data-testid={`link-nav-${link.label.toLowerCase()}`}>
                 <Button
                   variant="ghost"
-                  className={`group relative px-4 hover:text-secondary ${isActive(link.path) ? "text-foreground" : "text-muted-foreground"}`}
+                  className={`group relative px-4 hover:text-secondary ${isActive(link.path) ? "text-secondary" : "text-muted-foreground"}`}
                   data-testid={`button-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
@@ -67,7 +67,7 @@ export function Header() {
               <Link key={link.path} href={link.path}>
                 <Button
                   variant="ghost"
-                  className={`w-full justify-start hover:text-secondary ${isActive(link.path) ? "bg-accent/10" : ""}`}
+                  className={`w-full justify-start hover:text-secondary ${isActive(link.path) ? "bg-accent/10 text-secondary" : ""}`}
                   onClick={() => setMobileMenuOpen(false)}
                   data-testid={`link-mobile-${link.label.toLowerCase()}`}
                 >
