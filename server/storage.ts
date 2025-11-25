@@ -1,5 +1,7 @@
-import { type ContactInquiry, type InsertContactInquiry } from "@shared/schema";
-import { randomUUID } from "crypto";
+import { type ContactInquiry, type InsertContactInquiry, contactInquiries } from "@shared/schema";
+import { drizzle } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   createContactInquiry(inquiry: InsertContactInquiry): Promise<ContactInquiry>;
@@ -7,30 +9,37 @@ export interface IStorage {
   getAllContactInquiries(): Promise<ContactInquiry[]>;
 }
 
-export class MemStorage implements IStorage {
-  private contactInquiries: Map<string, ContactInquiry>;
+export class DrizzleStorage implements IStorage {
+  private db: ReturnType<typeof drizzle>;
 
-  constructor() {
-    this.contactInquiries = new Map();
+  constructor(databaseUrl: string) {
+    const client = neon(databaseUrl);
+    this.db = drizzle(client);
   }
 
   async createContactInquiry(insertInquiry: InsertContactInquiry): Promise<ContactInquiry> {
-    const id = randomUUID();
-    const createdAt = new Date();
-    const inquiry: ContactInquiry = { ...insertInquiry, id, createdAt };
-    this.contactInquiries.set(id, inquiry);
+    const [inquiry] = await this.db
+      .insert(contactInquiries)
+      .values(insertInquiry)
+      .returning();
     return inquiry;
   }
 
   async getContactInquiry(id: string): Promise<ContactInquiry | undefined> {
-    return this.contactInquiries.get(id);
+    const [inquiry] = await this.db
+      .select()
+      .from(contactInquiries)
+      .where(eq(contactInquiries.id, id))
+      .limit(1);
+    return inquiry;
   }
 
   async getAllContactInquiries(): Promise<ContactInquiry[]> {
-    return Array.from(this.contactInquiries.values()).sort(
-      (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
-    );
+    return await this.db
+      .select()
+      .from(contactInquiries)
+      .orderBy(contactInquiries.createdAt);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DrizzleStorage(process.env.DATABASE_URL || "");
