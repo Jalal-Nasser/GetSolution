@@ -72,7 +72,7 @@ export default function Home() {
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p data-testid="text-who-para-1">
-                  We are GS Company, a trusted technology partner to leading enterprises across Saudi Arabia and the GCC. We deliver innovative IT solutions and reliable services that streamline operations and boost innovation.
+                  We are Get Solution, a trusted technology partner to leading enterprises across Saudi Arabia and the GCC. We deliver innovative IT solutions and reliable services that streamline operations and boost innovation.
                 </p>
                 <p data-testid="text-who-para-2">
                   Our highly skilled experts team up dynamically to tailor complex solutions and deliver them in simple, reliable, and cost‑effective ways—reducing complexity, risk, and cost for our clients.

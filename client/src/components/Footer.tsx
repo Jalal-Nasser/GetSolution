@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <img src="/logo-getsolution.png" alt="GS Company" className="h-16" style={{ filter: "brightness(0) invert(1)" }} onError={(e) => (e.currentTarget.src = "/logo-getsolution-advanced.svg")} />
+              <img src="/logo-getsolution.png" alt="Get Solution" className="h-16" style={{ filter: "brightness(0) invert(1)" }} onError={(e) => (e.currentTarget.src = "/logo-getsolution-advanced.svg")} />
             </div>
             <div className="w-16 h-1 rounded bg-secondary mb-4" />
             <p className="text-primary-foreground/80 mb-4">

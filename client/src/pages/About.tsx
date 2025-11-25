@@ -80,7 +80,7 @@ export default function About() {
             </h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p data-testid="text-story-para-1">
-                  GS Company has been at the forefront of professional IT solutions for over 15 years, partnering with enterprises across Saudi Arabia and the GCC. We began with a vision to empower organizations through innovative technology.
+                  Get Solution has been at the forefront of professional IT solutions for over 15 years, partnering with enterprises across Saudi Arabia and the GCC. We began with a vision to empower organizations through innovative technology.
                 </p>
                 <p data-testid="text-story-para-2">
                   Today, we leverage deep expertise across eight specialized IT service areas to deliver transformative solutions. Our consultants and engineers bring proven methodologies and modern practices to every engagement.
