@@ -7,6 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Linkedin, Twitter, Facebook, User, Building, Type } from "lucide-react";
 
 const contactSchema = z.object({
@@ -57,7 +58,13 @@ export default function Contact() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-3 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-contact-hero-title">
               CONTACT US
             </h1>
-            <div className="mx-auto w-24 h-1 rounded bg-secondary mb-5" />
+            <motion.div
+              className="mx-auto w-24 h-1 rounded bg-secondary mb-5"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              style={{ transformOrigin: "center" }}
+            />
             <p className="text-xl text-muted-foreground" data-testid="text-contact-hero-subtitle">
               Get in touch with our team for IT solutions consultation
             </p>
