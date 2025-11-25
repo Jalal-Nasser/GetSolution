@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Loader2, Linkedin, Twitter, Facebook } from "lucide-react";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -54,11 +54,11 @@ export default function Contact() {
       <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight" data-testid="text-contact-hero-title">
-              Get in Touch
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-contact-hero-title">
+              CONTACT US
             </h1>
             <p className="text-xl text-muted-foreground" data-testid="text-contact-hero-subtitle">
-              Let's discuss how we can help transform your business
+              Get in touch with our team for IT solutions consultation
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function Contact() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6" data-testid="text-form-title">
+              <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-form-title">
                 Send Us a Message
               </h2>
               <p className="text-muted-foreground mb-8" data-testid="text-form-description">
@@ -84,7 +84,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Full Name *</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} data-testid="input-name" />
+                          <Input placeholder="Your Name" {...field} data-testid="input-name" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -98,7 +98,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Email Address *</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="john@example.com" {...field} data-testid="input-email" />
+                          <Input type="email" placeholder="your@email.com" {...field} data-testid="input-email" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -113,7 +113,7 @@ export default function Contact() {
                         <FormItem>
                           <FormLabel>Phone Number</FormLabel>
                           <FormControl>
-                            <Input placeholder="+966 12 345 6789" {...field} data-testid="input-phone" />
+                            <Input placeholder="+966 50 123 4567" {...field} data-testid="input-phone" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -142,7 +142,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Subject *</FormLabel>
                         <FormControl>
-                          <Input placeholder="How can we help you?" {...field} data-testid="input-subject" />
+                          <Input placeholder="How can we help?" {...field} data-testid="input-subject" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -157,7 +157,7 @@ export default function Contact() {
                         <FormLabel>Message *</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Tell us more about your needs..."
+                            placeholder="Tell us about your IT needs..."
                             className="min-h-32 resize-none"
                             {...field}
                             data-testid="textarea-message"
@@ -190,7 +190,7 @@ export default function Contact() {
 
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold mb-6" data-testid="text-info-title">
+                <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-info-title">
                   Contact Information
                 </h2>
                 <p className="text-muted-foreground mb-8" data-testid="text-info-description">
@@ -208,7 +208,7 @@ export default function Contact() {
                       <div>
                         <CardTitle className="text-lg" data-testid="text-location-title">Office Location</CardTitle>
                         <CardDescription className="text-base" data-testid="text-address">
-                          Riyadh, Saudi Arabia
+                          Olaya Street, Riyadh, Kingdom of Saudi Arabia
                         </CardDescription>
                       </div>
                     </div>
@@ -223,9 +223,12 @@ export default function Contact() {
                       </div>
                       <div>
                         <CardTitle className="text-lg" data-testid="text-phone-title">Phone</CardTitle>
-                        <CardDescription className="text-base">
-                          <a href="tel:+966123456789" className="hover:text-primary transition-colors" data-testid="link-phone">
-                            +966 12 345 6789
+                        <CardDescription className="text-base space-y-1">
+                          <a href="tel:+966112345678" className="hover:text-primary transition-colors block" data-testid="link-phone">
+                            +966 11 234 5678
+                          </a>
+                          <a href="tel:+966559876543" className="hover:text-primary transition-colors block" data-testid="link-phone-2">
+                            +966 55 987 6543
                           </a>
                         </CardDescription>
                       </div>
@@ -242,8 +245,8 @@ export default function Contact() {
                       <div>
                         <CardTitle className="text-lg" data-testid="text-email-title">Email</CardTitle>
                         <CardDescription className="text-base">
-                          <a href="mailto:info@gscompany.sa" className="hover:text-primary transition-colors" data-testid="link-email">
-                            info@gscompany.sa
+                          <a href="mailto:info@getsolutionit.com" className="hover:text-primary transition-colors" data-testid="link-email">
+                            info@getsolutionit.com
                           </a>
                         </CardDescription>
                       </div>
@@ -266,6 +269,21 @@ export default function Contact() {
                     </div>
                   </CardHeader>
                 </Card>
+
+                <div className="pt-4 border-t" data-testid="social-links">
+                  <h3 className="font-semibold mb-4" data-testid="text-social-title">Connect With Us</h3>
+                  <div className="flex space-x-4">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover-elevate active-elevate-2 p-2 rounded-md" data-testid="link-linkedin" aria-label="LinkedIn">
+                      <Linkedin className="h-5 w-5" data-testid="icon-linkedin" />
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover-elevate active-elevate-2 p-2 rounded-md" data-testid="link-twitter" aria-label="Twitter">
+                      <Twitter className="h-5 w-5" data-testid="icon-twitter" />
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover-elevate active-elevate-2 p-2 rounded-md" data-testid="link-facebook" aria-label="Facebook">
+                      <Facebook className="h-5 w-5" data-testid="icon-facebook" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

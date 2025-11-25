@@ -1,38 +1,38 @@
-# GetSolution Corporate Website
+# GetSolution IT Solutions Website
 
 ## Overview
-Professional business website for GetSolution (gscompany.sa) - a multi-page corporate site replicating the design and structure of SSBS.com.sa with custom GetSolution branding. Built with React, TypeScript, Express, and Tailwind CSS.
+Professional IT solutions website for GetSolution - a multi-page corporate site showcasing eight specialized IT services. Built with React, TypeScript, Express, and Tailwind CSS.
 
 ## Project Purpose
-Create a professional corporate website showcasing GetSolution's business consulting, technology solutions, and professional training services with:
+Create a professional IT services website with:
 - Multi-page navigation (Home, About, Services, Contact)
-- Professional hero sections and service showcases
+- Professional hero sections and IT service showcases (8 services)
 - Functional contact form with backend integration
 - Fully responsive design across all devices
-- Corporate styling with GetSolution brand colors
+- IT-focused styling with professional branding
 
 ## Recent Changes
-**November 25, 2025** - Initial Implementation
-- Created complete multi-page corporate website structure
-- Implemented all four main pages: Home, About, Services, Contact
-- Configured GetSolution brand colors (#1E3A8A primary blue, #059669 success green, #DC2626 accent red)
-- Generated professional hero and service images using AI
-- Built responsive header with navigation and mobile menu
-- Created comprehensive footer with contact information and social links
-- Implemented contact form with full backend integration, validation, and toast notifications
-- Set up in-memory storage for contact inquiries
-- Added API endpoints for contact form submission and retrieval
+**November 25, 2025** - Design Proposal Implementation
+- Replaced business consulting focus with IT services specialization
+- Updated color palette to Professional Blue (#1B365D) and Accent Orange (#E65100)
+- Changed typography to Montserrat Bold for headers and Open Sans for body
+- Completely redesigned all four pages with IT service focus
+- Implemented 8 IT service offerings (Networks, Software, OS, Application Dev, AI, Cybersecurity, Big Data, Cloud)
+- Updated About page with IT company vision/mission
+- Updated Contact page with Riyadh office address and contact information
+- Added Montserrat Bold font for stronger visual hierarchy
 
 ## Project Architecture
 
 ### Frontend Stack
 - **Framework**: React 18 with TypeScript
 - **Routing**: Wouter for client-side navigation
-- **Styling**: Tailwind CSS with custom design tokens
+- **Styling**: Tailwind CSS with custom design tokens (Professional Blue #1B365D, Orange #E65100)
 - **UI Components**: Shadcn UI component library
 - **Forms**: React Hook Form with Zod validation
 - **Data Fetching**: TanStack Query (React Query v5)
 - **Icons**: Lucide React
+- **Typography**: Montserrat (headers), Open Sans (body)
 
 ### Backend Stack
 - **Server**: Express.js with TypeScript
@@ -50,9 +50,9 @@ client/
 │   │   ├── Footer.tsx       # Footer with links and contact info
 │   │   └── Layout.tsx       # Main layout wrapper
 │   ├── pages/
-│   │   ├── Home.tsx         # Hero, services overview, stats, CTA
+│   │   ├── Home.tsx         # Hero, 4 featured IT services, stats, CTA
 │   │   ├── About.tsx        # Company story, mission, vision, values
-│   │   ├── Services.tsx     # Comprehensive service catalog
+│   │   ├── Services.tsx     # Complete 8 IT services catalog
 │   │   └── Contact.tsx      # Contact form and information
 │   └── App.tsx              # Main app with routing
 server/
@@ -63,17 +63,27 @@ shared/
 ```
 
 ## Brand Guidelines
-- **Primary Color**: #1E3A8A (Professional Blue) - Headers, primary buttons, key elements
-- **Secondary Color**: #059669 (Success Green) - Success states, highlights
-- **Accent Color**: #DC2626 (Call-to-Action Red) - Important CTAs, urgent actions
-- **Typography**: Inter for headings/UI, Open Sans for body text
-- **Design Approach**: Corporate professionalism with clean hierarchy and structured layouts
+- **Primary Color**: #1B365D (Professional Blue) - Headers, navigation, hero sections
+- **Accent Color**: #E65100 (Vibrant Orange) - CTAs, service cards, highlights
+- **Text Color**: #333333 (Dark Grey) - Body text
+- **Typography**: Montserrat Bold (36px, 24px) for headings; Open Sans Regular (18px, 16px) for body
+- **Design Approach**: Professional IT services focus with clean hierarchy and technical positioning
+
+## IT Services (8 Specializations)
+1. **Computer Networks (NET-101)** - Secure and reliable infrastructure for seamless connectivity
+2. **Software Publishing (SFT-202)** - Custom software solutions tailored to your needs
+3. **Operating Systems (OPS-303)** - Optimization and management of OS environments
+4. **Application Development (APP-404)** - Building innovative web and mobile applications
+5. **Artificial Intelligence (AI-505)** - Leveraging AI for smarter business insights
+6. **Cybersecurity (CYB-606)** - Protecting data with advanced security measures
+7. **Big Data Analytics (DAT-707)** - Unlocking value from data with powerful analytics
+8. **Cloud Computing (CLD-808)** - Scalable and flexible cloud solutions
 
 ## Key Features
-1. **Home Page**: Hero section, featured services grid, company statistics, bottom CTA
-2. **About Page**: Company story with imagery, mission/vision cards, core values grid
-3. **Services Page**: Three service categories (Consulting, Technology, Training) with detailed service cards and methodology section
-4. **Contact Page**: Comprehensive contact form with validation, contact information cards, business hours
+1. **Home Page**: Digital Transformation hero, 4 featured IT services, Why Choose Us stats, bottom CTA
+2. **About Page**: Company story with imagery, IT-focused mission/vision, core values grid
+3. **Services Page**: All 8 IT services in grid layout with codes, capabilities, expertise sections
+4. **Contact Page**: Contact form, Riyadh office details, phone numbers, email, business hours, social links
 5. **Responsive Navigation**: Desktop horizontal menu, mobile hamburger overlay menu
 6. **Footer**: Three-column layout with company info, quick links, and contact details
 
@@ -82,22 +92,20 @@ shared/
 - `GET /api/contact` - Get all contact inquiries
 - `GET /api/contact/:id` - Get specific inquiry by ID
 
+## Contact Information
+- **Address**: Olaya Street, Riyadh, Kingdom of Saudi Arabia
+- **Phone**: +966 11 234 5678, +966 55 987 6543
+- **Email**: info@getsolutionit.com
+- **Hours**: Sunday - Thursday: 9:00 AM - 6:00 PM
+
 ## Development Workflow
 - Start development server: `npm run dev`
 - Workflow: "Start application" runs Express backend and Vite frontend on same port
 - Hot reload enabled for both frontend and backend changes
 
 ## Tech Decisions
-- **In-Memory Storage**: Using MemStorage for development; can be easily replaced with database implementation
-- **Wouter over React Router**: Lightweight routing solution suitable for corporate website
-- **Shadcn UI**: Provides professional, accessible components out of the box
-- **Form Validation**: Zod schemas ensure type safety between frontend and backend
-- **Toast Notifications**: User feedback for contact form submission
-- **Generated Images**: AI-generated professional imagery for hero sections and services
-
-## Future Enhancements (Next Phase)
-- Email notification system for contact form submissions
-- Portfolio/projects section with case studies
-- Blog or news section for company updates
-- Multi-language support (Arabic/English)
-- Admin dashboard for inquiry management
+- **Montserrat + Open Sans**: Professional typography combination for IT services positioning
+- **In-Memory Storage**: Using MemStorage for development; can be replaced with database
+- **Wouter over React Router**: Lightweight routing for corporate website
+- **Shadcn UI**: Professional, accessible components
+- **8 IT Services**: Specialized positioning establishing market differentiation
