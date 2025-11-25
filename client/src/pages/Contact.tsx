@@ -219,7 +219,7 @@ export default function Contact() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-secondary text-background hover:bg-secondary/90"
+                    className="w-full bg-secondary text-background hover:bg-primary hover:text-primary-foreground"
                     data-testid="button-submit"
                   >
                     Send Message
