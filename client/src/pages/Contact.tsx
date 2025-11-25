@@ -54,9 +54,10 @@ export default function Contact() {
       <section className="py-20 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-contact-hero-title">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-3 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-contact-hero-title">
               CONTACT US
             </h1>
+            <div className="mx-auto w-24 h-1 rounded bg-secondary mb-5" />
             <p className="text-xl text-muted-foreground" data-testid="text-contact-hero-subtitle">
               Get in touch with our team for IT solutions consultation
             </p>
@@ -224,7 +225,7 @@ export default function Contact() {
                   <CardHeader>
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
-                        <MapPin className="h-6 w-6 text-primary" data-testid="icon-location" />
+                        <MapPin className="h-6 w-6 text-secondary" data-testid="icon-location" />
                       </div>
                       <div>
                         <CardTitle className="text-lg" data-testid="text-location-title">Office Location</CardTitle>
@@ -240,7 +241,7 @@ export default function Contact() {
                   <CardHeader>
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
-                        <MapPin className="h-6 w-6 text-primary" />
+                        <MapPin className="h-6 w-6 text-secondary" />
                       </div>
                       <div>
                         <CardTitle className="text-lg">Additional Locations</CardTitle>
@@ -256,7 +257,7 @@ export default function Contact() {
                   <CardHeader>
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
-                        <Phone className="h-6 w-6 text-primary" data-testid="icon-phone" />
+                        <Phone className="h-6 w-6 text-secondary" data-testid="icon-phone" />
                       </div>
                       <div>
                         <CardTitle className="text-lg" data-testid="text-phone-title">Phone</CardTitle>
@@ -277,7 +278,7 @@ export default function Contact() {
                   <CardHeader>
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
-                        <Mail className="h-6 w-6 text-primary" data-testid="icon-email" />
+                        <Mail className="h-6 w-6 text-secondary" data-testid="icon-email" />
                       </div>
                       <div>
                         <CardTitle className="text-lg" data-testid="text-email-title">Email</CardTitle>
@@ -295,7 +296,7 @@ export default function Contact() {
                   <CardHeader>
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
-                        <Clock className="h-6 w-6 text-primary" data-testid="icon-hours" />
+                        <Clock className="h-6 w-6 text-secondary" data-testid="icon-hours" />
                       </div>
                       <div>
                         <CardTitle className="text-lg" data-testid="text-hours-title">Business Hours</CardTitle>
