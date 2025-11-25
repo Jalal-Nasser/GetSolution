@@ -232,9 +232,10 @@ export default function Contact() {
 
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-info-title">
+                <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-info-title">
                   Contact Information
                 </h2>
+                <div className="w-16 h-1 rounded bg-secondary mb-6" />
                 <p className="text-muted-foreground mb-8" data-testid="text-info-description">
                   Reach out to us through any of the following channels
                 </p>
