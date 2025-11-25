@@ -7,7 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Clock, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Linkedin, Twitter, Facebook, User, Building, Type } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -68,42 +68,54 @@ export default function Contact() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-form-title">
-                Send Us a Message
-              </h2>
-              <p className="text-muted-foreground mb-8" data-testid="text-form-description">
-                Fill out the form below and our team will get back to you within 24 hours.
-              </p>
-
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Full Name *</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Your Name" {...field} data-testid="input-name" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+              <Card className="hover-elevate active-elevate-2 bg-background rounded-xl border border-white/20 shadow-md">
+                <CardHeader>
+                  <CardTitle className="text-2xl" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-form-title">Send Us a Message</CardTitle>
+                  <div className="w-16 h-1 rounded bg-secondary mt-2" />
+                  <CardDescription className="text-base" data-testid="text-form-description">
+                    Fill out the form below and our team will get back to you within 24 hours.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Full Name *</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                  <User className="h-4 w-4" />
+                                </span>
+                                <Input placeholder="Your Name" className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-name" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address *</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="your@email.com" {...field} data-testid="input-email" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                            <FormLabel>Email Address *</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                  <Mail className="h-4 w-4" />
+                                </span>
+                                <Input type="email" placeholder="your@email.com" className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-email" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <FormField
@@ -111,28 +123,38 @@ export default function Contact() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Phone Number</FormLabel>
-                          <FormControl>
-                            <Input placeholder="+966 50 123 4567" {...field} data-testid="input-phone" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                            <FormLabel>Phone Number</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                  <Phone className="h-4 w-4" />
+                                </span>
+                                <Input placeholder="+966 50 123 4567" className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-phone" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
                     <FormField
                       control={form.control}
                       name="company"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Company Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your Company" {...field} data-testid="input-company" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                            <FormLabel>Company Name</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                  <Building className="h-4 w-4" />
+                                </span>
+                                <Input placeholder="Your Company" className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-company" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                   </div>
 
                   <FormField
@@ -140,14 +162,19 @@ export default function Contact() {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Subject *</FormLabel>
-                        <FormControl>
-                          <Input placeholder="How can we help?" {...field} data-testid="input-subject" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                            <FormLabel>Subject *</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                  <Type className="h-4 w-4" />
+                                </span>
+                                <Input placeholder="How can we help?" className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-subject" />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
                   <FormField
                     control={form.control}
@@ -158,7 +185,7 @@ export default function Contact() {
                         <FormControl>
                           <Textarea
                             placeholder="Tell us about your IT needs..."
-                            className="min-h-32 resize-none"
+                            className="min-h-32 resize-none rounded-xl focus-visible:ring-2 focus-visible:ring-secondary"
                             {...field}
                             data-testid="textarea-message"
                           />
@@ -171,13 +198,15 @@ export default function Contact() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full"
+                    className="w-full bg-secondary text-background hover:bg-secondary/90"
                     data-testid="button-submit"
                   >
                     Send Message
                   </Button>
-                </form>
-              </Form>
+                    </form>
+                  </Form>
+                </CardContent>
+              </Card>
             </div>
 
             <div className="space-y-8">
