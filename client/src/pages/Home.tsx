@@ -1,8 +1,13 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Zap, Shield, Cloud, Brain } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import heroImage from "@assets/generated_images/corporate_hero_background_image.png";
+import aboutImage from "@assets/generated_images/about_page_hero_image.png";
+import teamImage from "@assets/generated_images/team_collaboration_image.png";
+import HeroCarousel from "@/components/HeroCarousel";
+import AnimatedSvgIcon from "@/components/AnimatedSvgIcon";
 
 export default function Home() {
   const services = [
@@ -37,43 +42,72 @@ export default function Home() {
 
   return (
     <div>
-      <section
-        className="relative min-h-[70vh] flex items-center justify-center text-background overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(27, 54, 93, 0.85), rgba(27, 54, 93, 0.75)), url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 to-primary/70" />
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 py-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-hero-title">
-              DIGITAL TRANSFORMATION
-            </h1>
-            <p className="text-xl sm:text-2xl mb-8 text-background/90" data-testid="text-hero-subtitle">
-              Empowering your business with innovative IT solutions
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/services">
-                <Button size="lg" variant="outline" className="bg-secondary backdrop-blur-sm border-secondary text-background hover:bg-secondary/90" data-testid="button-hero-learn">
-                  LEARN MORE <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button size="lg" variant="outline" className="bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20" data-testid="button-hero-contact">
-                  Get in Touch
-                </Button>
-              </Link>
+      <section className="relative text-background">
+        <HeroCarousel slides={[{ src: heroImage, alt: "Hero" }, { src: aboutImage, alt: "About" }, { src: teamImage, alt: "Team" }]} />
+        <div className="absolute inset-0 z-10 flex items-center">
+          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div className="max-w-3xl mx-auto text-center" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <h1 className="text-4xl font-bold mb-3 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-hero-title">DIGITAL TRANSFORMATION</h1>
+              <div className="mx-auto w-24 h-1 rounded bg-secondary mb-5" />
+              <p className="text-xl mb-6 text-background/90" data-testid="text-hero-subtitle">Empowering your business with innovative IT solutions</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/services">
+                  <Button size="lg" className="bg-secondary text-white hover:bg-secondary/90" data-testid="button-hero-learn">LEARN MORE <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                </Link>
+                <Link href="/contact">
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20" data-testid="button-hero-contact">Get in Touch</Button>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-who-we-are-title">
+                Who We Are
+              </h2>
+              <div className="space-y-4 text-lg text-muted-foreground">
+                <p data-testid="text-who-para-1">
+                  We are GS Company, a trusted technology partner to leading enterprises across Saudi Arabia and the GCC. We deliver innovative IT solutions and reliable services that streamline operations and boost innovation.
+                </p>
+                <p data-testid="text-who-para-2">
+                  Our highly skilled experts team up dynamically to tailor complex solutions and deliver them in simple, reliable, and cost‑effective ways—reducing complexity, risk, and cost for our clients.
+                </p>
+                <p data-testid="text-who-para-3">
+                  We combine deep domain expertise with modern technologies to help organizations accelerate digital transformation and achieve measurable outcomes.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-1">
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Streamline Operations</h3>
+                <p className="text-foreground/80">Optimize processes and infrastructure for efficiency and reliability.</p>
+              </div>
+              <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-2">
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Boost Innovation</h3>
+                <p className="text-foreground/80">Adopt future‑ready solutions that unlock new opportunities.</p>
+              </div>
+              <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-3">
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Reduce Complexity</h3>
+                <p className="text-foreground/80">Simplify technology stacks and improve maintainability.</p>
+              </div>
+              <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-4">
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Mitigate Risk & Cost</h3>
+                <p className="text-foreground/80">Strengthen security and optimize TCO across the lifecycle.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-primary/10">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-services-title">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-services-title">
               Our IT Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -83,8 +117,17 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="hover-elevate active-elevate-2 transition-all duration-300" data-testid={`card-service-${index}`}>
+              <motion.div key={index} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }}>
+              <Card className="hover-elevate active-elevate-2 transition-all duration-300" data-testid={`card-service-${index}`}>
                 <CardHeader>
+                  <div className="mb-3">
+                    <AnimatedSvgIcon src={
+                      index === 0 ? "/services/cloud.svg" :
+                      index === 1 ? "/services/saas.svg" :
+                      index === 2 ? "/services/infrastructure-networks.svg" :
+                      index === 3 ? "/services/security.svg" : "/services/business.svg"
+                    } size={72} hover />
+                  </div>
                   <div className="text-sm font-semibold text-secondary mb-2" data-testid={`text-service-code-${index}`}>
                     {service.code}
                   </div>
@@ -99,6 +142,7 @@ export default function Home() {
                   </Link>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
 
@@ -112,10 +156,41 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-16">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>Featured Work</h2>
+            <p className="text-lg text-muted-foreground">A glimpse into our projects and collaboration</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[aboutImage, teamImage, heroImage].map((img, i) => (
+              <motion.div key={i} className="rounded-lg overflow-hidden hover-elevate" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <img src={img} alt="Project" className="w-full h-56 object-cover" loading="lazy" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>Trusted By</h2>
+          </div>
+          <div className="marquee">
+            <div className="marquee__track">
+              {['/partners/stc.svg','/partners/aramco.svg','/partners/sabic.svg','/partners/stc.svg','/partners/aramco.svg','/partners/sabic.svg'].map((src, i) => (
+                <img key={i} src={src} alt="Partner logo" className="h-12" loading="lazy" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-primary/5">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-why-choose-title">
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-why-choose-title">
               Why Choose Us
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -141,7 +216,7 @@ export default function Home() {
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-cta-title">
+            <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-cta-title">
               Ready for Digital Transformation?
             </h2>
             <p className="text-xl mb-8 text-primary-foreground/90">

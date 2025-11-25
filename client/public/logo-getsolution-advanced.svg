@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2443"/>
+      <stop offset="1" stop-color="#1B365D"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D85C00"/>
+      <stop offset="1" stop-color="#FF8A2A"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="50%" cy="35%" r="70%">
+      <stop offset="0" stop-color="rgba(255,255,255,0.25)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(24 24)">
+    <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+    <rect width="128" height="128" rx="28" fill="url(#shine)"/>
+    <path d="M40 92c-10-9-15-20-15-32 0-22 18-40 40-40 16 0 28 6 38 18" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <path d="M88 104c-9 8-20 12-32 12-11 0-20-3-28-9" fill="none" stroke="#FF8A2A" stroke-width="10" stroke-linecap="round"/>
+    <path d="M108 72c0 22-18 40-40 40" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="96" cy="40" r="6" fill="#FF8A2A"/>
+    <circle cx="72" cy="112" r="5" fill="#FF8A2A"/>
+  </g>
+  <g transform="translate(176 52)">
+    <text x="0" y="52" font-family="Montserrat, 'Open Sans', Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="-0.8" fill="#1B365D">Get</text>
+    <text x="168" y="52" font-family="Montserrat, 'Open Sans', Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="-0.8" fill="#D85C00">Solution</text>
+    <rect x="0" y="70" width="500" height="8" rx="4" fill="url(#accent)"/>
+  </g>
+</svg>

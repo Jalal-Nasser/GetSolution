@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" rx="12" fill="#f6f8fb"/>
+  <text x="20" y="50" font-family="Montserrat, Arial" font-size="22" fill="#1B365D" font-weight="700">SecureDocs</text>
+  <text x="20" y="80" font-family="Open Sans, Arial" font-size="14" fill="#333">Encrypted DMS</text>
+  <rect x="220" y="100" width="60" height="40" rx="6" fill="#1B365D"/>
+  <circle cx="250" cy="120" r="8" fill="#E65100"/>
+</svg>

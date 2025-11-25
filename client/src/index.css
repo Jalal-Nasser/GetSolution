@@ -26,18 +26,18 @@
   --popover: 220 13% 94%;
   --popover-foreground: 220 13% 13%;
   --popover-border: 220 13% 89%;
-  --primary: 216 56% 22%;
+  --primary: 216 55% 24%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 24 100% 32%;
+  --secondary: 21 100% 45%;
   --secondary-foreground: 0 0% 100%;
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
-  --accent: 24 100% 32%;
+  --muted: 216 30% 96%;
+  --muted-foreground: 0 0% 20%;
+  --accent: 21 100% 45%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
   --input: 220 13% 88%;
-  --ring: 221 83% 33%;
+  --ring: 221 70% 40%;
   --chart-1: 221 83% 33%;
   --chart-2: 160 84% 40%;
   --chart-3: 0 72% 51%;
@@ -289,4 +289,35 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+.marquee__track {
+  display: flex;
+  gap: 2.5rem;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+.marquee img { filter: saturate(110%); opacity: 0.9; transition: opacity .2s ease; }
+.marquee img:hover { opacity: 1; }
+
+/* Tile accent bar for SSBS-style cards */
+.tile-accent { position: relative; }
+.tile-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: hsl(var(--secondary));
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }

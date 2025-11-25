@@ -1,20 +1,29 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
-import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
-import { Mail, Phone, MapPin, Clock, Loader2, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Linkedin, Twitter, Facebook } from "lucide-react";
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().optional(),
+  company: z.string().optional(),
+  subject: z.string().min(2, "Subject is required"),
+  message: z.string().min(10, "Message is required"),
+});
+
+type ContactForm = z.infer<typeof contactSchema>;
 
 export default function Contact() {
   const { toast } = useToast();
-  const form = useForm<InsertContactInquiry>({
-    resolver: zodResolver(insertContactInquirySchema),
+  const form = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -25,28 +34,19 @@ export default function Contact() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: InsertContactInquiry) => {
-      return await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: (response) => {
-      toast({
-        title: "Message Sent Successfully!",
-        description: response.message || "Thank you for your inquiry. We will get back to you within 24 hours.",
-      });
-      form.reset();
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Error Sending Message",
-        description: error.message || "Failed to submit inquiry. Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = async (data: InsertContactInquiry) => {
-    mutation.mutate(data);
+  const onSubmit = async (data: ContactForm) => {
+    const to = "info@gscompany.sa";
+    const subject = encodeURIComponent(`[Website Inquiry] ${data.subject}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || "-"}\nCompany: ${data.company || "-"}\n\nMessage:\n${data.message}`
+    );
+    const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+    window.location.href = mailto;
+    toast({
+      title: "Opening your mail client",
+      description: "Your message details are pre‑filled. Please confirm and send.",
+    });
+    form.reset();
   };
 
   return (
@@ -171,18 +171,10 @@ export default function Contact() {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full" 
-                    disabled={mutation.isPending}
+                    className="w-full"
                     data-testid="button-submit"
                   >
-                    {mutation.isPending ? (
-                      <>
-                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      "Send Message"
-                    )}
+                    Send Message
                   </Button>
                 </form>
               </Form>
@@ -209,6 +201,22 @@ export default function Contact() {
                         <CardTitle className="text-lg" data-testid="text-location-title">Office Location</CardTitle>
                         <CardDescription className="text-base" data-testid="text-address">
                           Olaya Street, Riyadh, Kingdom of Saudi Arabia
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+
+                <Card data-testid="card-additional-locations">
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <MapPin className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">Additional Locations</CardTitle>
+                        <CardDescription className="text-base">
+                          Jeddah • Dammam • Al Khobar
                         </CardDescription>
                       </div>
                     </div>

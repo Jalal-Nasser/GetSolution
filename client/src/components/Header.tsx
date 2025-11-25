@@ -6,11 +6,13 @@ import { useState } from "react";
 export function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoSrc, setLogoSrc] = useState<string>("/logo-getsolution.png");
 
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
+    { path: "/apps", label: "Our Apps" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -24,7 +26,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between gap-4">
           <Link href="/" className="flex items-center space-x-2" data-testid="link-home">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-primary tracking-tight">GetSolution</span>
+              <img src={logoSrc} alt="GetSolution" className="h-12 sm:h-14" onError={() => setLogoSrc("/logo-getsolution-advanced.svg")} />
             </div>
           </Link>
 
@@ -33,10 +35,11 @@ export function Header() {
               <Link key={link.path} href={link.path} data-testid={`link-nav-${link.label.toLowerCase()}`}>
                 <Button
                   variant="ghost"
-                  className={isActive(link.path) ? "bg-accent/10 text-foreground" : ""}
+                  className={`relative px-4 ${isActive(link.path) ? "text-foreground" : "text-muted-foreground"}`}
                   data-testid={`button-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
+                  <span className={`absolute left-3 right-3 -bottom-1 h-[2px] rounded-sm transition-opacity ${isActive(link.path) ? "opacity-100 bg-secondary" : "opacity-0"}`} />
                 </Button>
               </Link>
             ))}
