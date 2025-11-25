@@ -44,7 +44,7 @@ export function Header() {
               </Link>
             ))}
             <Link href="/contact">
-              <Button variant="default" className="ml-4" data-testid="button-get-started">
+              <Button variant="default" className="ml-4 transition-colors hover:bg-secondary hover:text-background" data-testid="button-get-started">
                 Get Started
               </Button>
             </Link>
@@ -78,7 +78,7 @@ export function Header() {
             <Link href="/contact">
               <Button
                 variant="default"
-                className="w-full"
+                className="w-full transition-colors hover:bg-secondary hover:text-background"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="button-mobile-get-started"
               >
