@@ -39,7 +39,7 @@ export function Header() {
                   data-testid={`button-nav-${link.label.toLowerCase()}`}
                 >
                   {link.label}
-                  <span className={`absolute left-3 right-3 -bottom-1 h-[2px] rounded-sm transition-opacity ${isActive(link.path) ? "opacity-100 bg-secondary" : "opacity-0 group-hover:opacity-100 group-hover:bg-secondary"}`} />
+                  <span className={`absolute left-3 right-3 -bottom-1 h-[2px] rounded-sm transition-opacity ${isActive(link.path) ? "opacity-100 bg-secondary" : "opacity-0"}`} />
                 </Button>
               </Link>
             ))}
