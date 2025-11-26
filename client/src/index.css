@@ -177,6 +177,29 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+  [dir="rtl"] body {
+    direction: rtl;
+  }
+  [dir="rtl"] nav, [dir="rtl"] header, [dir="rtl"] footer {
+    direction: rtl;
+  }
+  [dir="rtl"] .rtl-right {
+    right: 0;
+    left: auto;
+  }
+  [dir="rtl"] .rtl-padding {
+    padding-right: 1rem;
+    padding-left: 0;
+  }
+  [dir="rtl"] .rtl-margin {
+    margin-right: 1rem;
+    margin-left: 0;
+  }
+  [dir="rtl"] input,
+  [dir="rtl"] textarea,
+  [dir="rtl"] select {
+    text-align: right;
+  }
 }
 
 /**

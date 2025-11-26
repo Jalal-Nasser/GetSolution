@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 type Slide = { src: string; alt: string };
 
 export default function HeroCarousel({ slides }: { slides: Slide[] }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", draggable: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -19,7 +19,7 @@ export default function HeroCarousel({ slides }: { slides: Slide[] }) {
   }, [emblaApi]);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden" dir="ltr">
       <div className="embla" ref={emblaRef}>
         <div className="embla__container flex">
           {slides.map((s, i) => (

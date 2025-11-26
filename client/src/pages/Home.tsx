@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
 import heroImage from "@assets/generated_images/corporate_hero_background_image.png";
 import aboutImage from "@assets/generated_images/about_page_hero_image.png";
 import teamImage from "@assets/generated_images/team_collaboration_image.png";
@@ -10,28 +11,20 @@ import HeroCarousel from "@/components/HeroCarousel";
 import AnimatedSvgIcon from "@/components/AnimatedSvgIcon";
 
 export default function Home() {
-  const services = [
-    {
-      title: "Computer Networks",
-      code: "NET-101",
-      description: "Secure and reliable infrastructure for seamless connectivity",
-    },
-    {
-      title: "Software Publishing",
-      code: "SFT-202",
-      description: "Custom software solutions tailored to your needs",
-    },
-    {
-      title: "Cybersecurity",
-      code: "CYB-606",
-      description: "Protecting data with advanced security measures",
-    },
-    {
-      title: "Cloud Computing",
-      code: "CLD-808",
-      description: "Scalable and flexible cloud solutions",
-    },
-  ];
+  const { t, dir, locale } = useI18n();
+  const services = locale === "ar"
+    ? [
+        { title: "تحديث الشبكات", code: "NET-101", description: "بنية تحتية آمنة وموثوقة لاتصال سلس" },
+        { title: "تعزيز الابتكار", code: "SFT-202", description: "اعتماد حلول مستقبلية تفتح فرصًا جديدة" },
+        { title: "الأمن السيبراني", code: "CYB-606", description: "تعزيز الأمن وتحسين التكلفة الإجمالية عبر دورة الحياة" },
+        { title: "الحوسبة السحابية", code: "CLD-808", description: "حلول سحابية قابلة للتوسع ومرنة" },
+      ]
+    : [
+        { title: "Computer Networks", code: "NET-101", description: "Secure and reliable infrastructure for seamless connectivity" },
+        { title: "Boost Innovation", code: "SFT-202", description: "Adopt future‑ready solutions that unlock new opportunities" },
+        { title: "Cybersecurity", code: "CYB-606", description: "Strengthen security and optimize TCO across the lifecycle" },
+        { title: "Cloud Computing", code: "CLD-808", description: "Scalable and flexible cloud solutions" },
+      ];
 
   const whyChooseUs = [
     { label: "Years of Expertise", value: "15+" },
@@ -47,15 +40,15 @@ export default function Home() {
         <div className="absolute inset-0 z-10 flex items-center">
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div className="max-w-3xl mx-auto text-center" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <h1 className="text-4xl font-bold mb-3 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-hero-title">DIGITAL TRANSFORMATION</h1>
+              <h1 className="text-4xl font-bold mb-3 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-hero-title">{t("home.heroTitle")}</h1>
               <div className="mx-auto w-24 h-1 rounded bg-secondary mb-5" />
-              <p className="text-xl mb-6 text-background/90" data-testid="text-hero-subtitle">Empowering your business with innovative IT solutions</p>
+              <p className="text-xl mb-6 text-background/90" data-testid="text-hero-subtitle">{t("home.heroSubtitle")}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/services">
-                  <Button size="lg" className="bg-secondary text-white hover:bg-secondary/90" data-testid="button-hero-learn">LEARN MORE <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                  <Button size="lg" className="bg-secondary text-white hover:bg-secondary/90" data-testid="button-hero-learn">{t("home.heroLearn")} <ArrowRight className="ml-2 h-5 w-5" /></Button>
                 </Link>
                 <Link href="/contact">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20" data-testid="button-hero-contact">Get in Touch</Button>
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20" data-testid="button-hero-contact">{t("home.heroContact")}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -66,38 +59,32 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div dir={dir}>
               <h2 className="text-4xl sm:text-5xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-who-we-are-title">
-                Who We Are
+                {t("home.whoTitle")}
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground">
-                <p data-testid="text-who-para-1">
-                  We are Get Solution, a trusted technology partner to leading enterprises across Saudi Arabia and the GCC. We deliver innovative IT solutions and reliable services that streamline operations and boost innovation.
-                </p>
-                <p data-testid="text-who-para-2">
-                  Our highly skilled experts team up dynamically to tailor complex solutions and deliver them in simple, reliable, and cost‑effective ways—reducing complexity, risk, and cost for our clients.
-                </p>
-                <p data-testid="text-who-para-3">
-                  We combine deep domain expertise with modern technologies to help organizations accelerate digital transformation and achieve measurable outcomes.
-                </p>
+                <p data-testid="text-who-para-1">{t("home.whoPara1")}</p>
+                <p data-testid="text-who-para-2">{t("home.whoPara2")}</p>
+                <p data-testid="text-who-para-3">{t("home.whoPara3")}</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-1">
-                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Streamline Operations</h3>
-                <p className="text-foreground/80">Optimize processes and infrastructure for efficiency and reliability.</p>
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>{t("home.benefit1Title")}</h3>
+                <p className="text-foreground/80">{t("home.benefit1Desc")}</p>
               </div>
               <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-2">
-                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Boost Innovation</h3>
-                <p className="text-foreground/80">Adopt future‑ready solutions that unlock new opportunities.</p>
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>{t("home.benefit2Title")}</h3>
+                <p className="text-foreground/80">{t("home.benefit2Desc")}</p>
               </div>
               <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-3">
-                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Reduce Complexity</h3>
-                <p className="text-foreground/80">Simplify technology stacks and improve maintainability.</p>
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>{t("home.benefit3Title")}</h3>
+                <p className="text-foreground/80">{t("home.benefit3Desc")}</p>
               </div>
               <div className="p-6 bg-muted/10 rounded-xl border border-foreground/15 shadow-md tile-accent transition-shadow hover:shadow-lg" data-testid="who-benefit-4">
-                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>Mitigate Risk & Cost</h3>
-                <p className="text-foreground/80">Strengthen security and optimize TCO across the lifecycle.</p>
+                <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>{t("home.benefit4Title")}</h3>
+                <p className="text-foreground/80">{t("home.benefit4Desc")}</p>
               </div>
             </div>
           </div>
@@ -106,14 +93,14 @@ export default function Home() {
 
       <section className="py-20 bg-primary/10">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-services-title">
-              Our IT Services
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive technology solutions to transform your business
-            </p>
-          </div>
+            <div className="text-center mb-16" dir={dir}>
+              <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-services-title">
+                {t("home.servicesTitle")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("home.servicesSubtitle")}
+              </p>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
@@ -128,16 +115,16 @@ export default function Home() {
                       index === 3 ? "/services/security.svg" : "/services/business.svg"
                     } size={72} hover />
                   </div>
-                  <div className="text-sm font-semibold text-secondary mb-2" data-testid={`text-service-code-${index}`}>
+                  <div className="text-sm font-semibold text-secondary mb-2 text-center" data-testid={`text-service-code-${index}`}>
                     {service.code}
                   </div>
-                  <CardTitle className="text-xl" data-testid={`text-service-title-${index}`}>{service.title}</CardTitle>
+                  <CardTitle className="text-xl text-center" data-testid={`text-service-title-${index}`}>{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base" data-testid={`text-service-description-${index}`}>{service.description}</CardDescription>
+                  <CardDescription className={`text-base ${dir === "rtl" ? "text-right" : "text-left"}`} data-testid={`text-service-description-${index}`}>{service.description}</CardDescription>
                   <Link href="/services" className="mt-4 block" data-testid={`link-service-${index}`}>
                     <Button variant="ghost" className="p-0 h-auto font-semibold text-secondary" data-testid={`button-learn-more-${index}`}>
-                      View Details <ArrowRight className="ml-2 h-4 w-4" />
+                      {t("home.viewDetails")} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                 </CardContent>
@@ -149,7 +136,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href="/services">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" data-testid="button-view-all">
-                VIEW ALL SERVICES <ArrowRight className="ml-2 h-5 w-5" />
+                {t("home.viewAll")} <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
@@ -159,8 +146,8 @@ export default function Home() {
       <section className="py-16">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>Featured Work</h2>
-            <p className="text-lg text-muted-foreground">A glimpse into our projects and collaboration</p>
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>{t("home.featuredTitle")}</h2>
+            <p className="text-lg text-muted-foreground">{t("home.featuredSubtitle")}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[aboutImage, teamImage, heroImage].map((img, i) => (
@@ -175,7 +162,7 @@ export default function Home() {
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>Trusted By</h2>
+            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>{t("home.trustedBy")}</h2>
           </div>
           <div className="marquee">
             <div className="marquee__track">
@@ -191,10 +178,10 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-why-choose-title">
-              Why Choose Us
+              {t("home.whyTitle")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Proven expertise, innovative solutions, and unwavering commitment to excellence
+              {t("home.whySubtitle")}
             </p>
           </div>
 
@@ -217,14 +204,14 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-cta-title">
-              Ready for Digital Transformation?
+              {t("home.ctaTitle")}
             </h2>
             <p className="text-xl mb-8 text-primary-foreground/90">
-              Let's discuss how our IT solutions can drive your business growth
+              {t("home.ctaSubtitle")}
             </p>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="bg-secondary backdrop-blur-sm border-secondary text-background hover:bg-secondary/90" data-testid="button-cta-contact">
-                CONTACT US TODAY <ArrowRight className="ml-2 h-5 w-5" />
+                {t("home.ctaButton")} <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
