@@ -150,9 +150,26 @@ export default function Home() {
             <p className="text-lg text-muted-foreground">{t("home.featuredSubtitle")}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[aboutImage, teamImage, heroImage].map((img, i) => (
+            {["saudi-1", "saudi-2", "saudi-3"].map((name, i) => (
               <motion.div key={i} className="rounded-lg overflow-hidden hover-elevate" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                <img src={img} alt="Project" className="w-full h-56 object-cover" loading="lazy" />
+                <img
+                  src={`/featured/${name}.jpg`}
+                  alt="Project"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                  data-fmt="jpg"
+                  onError={(e) => {
+                    const fmt = e.currentTarget.getAttribute("data-fmt") || "jpg";
+                    const next = fmt === "jpg" ? "png" : fmt === "png" ? "webp" : null;
+                    if (next) {
+                      e.currentTarget.setAttribute("data-fmt", next);
+                      e.currentTarget.src = `/featured/${name}.${next}`;
+                    } else {
+                      const fallback = i === 0 ? aboutImage : i === 1 ? teamImage : heroImage;
+                      e.currentTarget.src = (fallback as string);
+                    }
+                  }}
+                />
               </motion.div>
             ))}
           </div>

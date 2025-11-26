@@ -68,7 +68,30 @@ export default function Apps() {
               <Card key={i} className="hover-elevate active-elevate-2 transition-all duration-300 h-full flex flex-col">
                 <CardHeader dir={dir} className="flex-1">
                   <div className="w-full bg-muted rounded-md mb-4 flex items-center justify-center p-2">
-                    <img src={app.thumb} alt={app.name} className="w-full h-auto object-contain" loading="lazy" />
+                    {app.thumb.endsWith('.svg') ? (
+                      <img src={app.thumb} alt={app.name} className="w-full h-auto object-contain" loading="lazy" />
+                    ) : (
+                      (() => {
+                        const base = app.thumb.replace(/\.(png|jpe?g|svg|webp)$/i, "");
+                        return (
+                          <img
+                            src={`${base}.jpg`}
+                            alt={app.name}
+                            className="w-full h-auto object-contain"
+                            loading="lazy"
+                            data-fmt="jpg"
+                            onError={(e) => {
+                              const fmt = e.currentTarget.getAttribute("data-fmt") || "jpg";
+                              const next = fmt === "jpg" ? "png" : fmt === "png" ? "webp" : null;
+                              if (next) {
+                                e.currentTarget.setAttribute("data-fmt", next);
+                                e.currentTarget.src = `${base}.${next}`;
+                              }
+                            }}
+                          />
+                        );
+                      })()
+                    )}
                   </div>
                   <CardTitle className="text-xl mb-2 text-center">{app.name}</CardTitle>
                   <CardDescription className={`text-base ${dir === "rtl" ? "text-right" : "text-left"}`}>{app.description}</CardDescription>
