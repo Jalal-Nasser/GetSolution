@@ -65,15 +65,15 @@ export default function Apps() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {apps.map((app, i) => (
-              <Card key={i} className="hover-elevate active-elevate-2 transition-all duration-300">
-                <CardHeader dir={dir}>
+              <Card key={i} className="hover-elevate active-elevate-2 transition-all duration-300 h-full flex flex-col">
+                <CardHeader dir={dir} className="flex-1">
                   <div className="w-full bg-muted rounded-md mb-4 flex items-center justify-center p-2">
                     <img src={app.thumb} alt={app.name} className="w-full h-auto object-contain" loading="lazy" />
                   </div>
                   <CardTitle className="text-xl mb-2 text-center">{app.name}</CardTitle>
                   <CardDescription className={`text-base ${dir === "rtl" ? "text-right" : "text-left"}`}>{app.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <div className={`flex flex-wrap gap-2 mb-4 ${dir === "rtl" ? "flex-row-reverse" : ""}`}>
                     {app.tags.map((t, j) => (
                       <span key={j} className="px-2 py-1 text-xs rounded bg-secondary/10 text-secondary">{t}</span>

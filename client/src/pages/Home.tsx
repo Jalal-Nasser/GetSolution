@@ -104,9 +104,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <motion.div key={index} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }}>
-              <Card className="hover-elevate active-elevate-2 transition-all duration-300" data-testid={`card-service-${index}`}>
-                <CardHeader>
+              <motion.div key={index} className="h-full" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }}>
+              <Card className="hover-elevate active-elevate-2 transition-all duration-300 h-full flex flex-col" data-testid={`card-service-${index}`}>
+                <CardHeader className="flex-1">
                   <div className="mb-3">
                     <AnimatedSvgIcon src={
                       index === 0 ? "/services/cloud.svg" :
@@ -120,7 +120,7 @@ export default function Home() {
                   </div>
                   <CardTitle className="text-xl text-center" data-testid={`text-service-title-${index}`}>{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <CardDescription className={`text-base ${dir === "rtl" ? "text-right" : "text-left"}`} data-testid={`text-service-description-${index}`}>{service.description}</CardDescription>
                   <Link href="/services" className="mt-4 block" data-testid={`link-service-${index}`}>
                     <Button variant="ghost" className="p-0 h-auto font-semibold text-secondary" data-testid={`button-learn-more-${index}`}>

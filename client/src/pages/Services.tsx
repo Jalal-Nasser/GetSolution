@@ -145,10 +145,10 @@ export default function Services() {
             {itServices.map((service, index) => (
               <Card
                 key={index}
-                className="hover-elevate active-elevate-2 transition-all duration-300"
+                className="hover-elevate active-elevate-2 transition-all duration-300 h-full flex flex-col"
                 data-testid={`card-service-${index}`}
               >
-                <CardHeader>
+                <CardHeader className="flex-1">
                   <div className="flex items-start justify-between mb-4" dir={dir}>
                     <div className="p-3 bg-secondary/10 rounded-lg">
                       <service.icon className="h-6 w-6 text-secondary" data-testid={`icon-service-${index}`} />
@@ -160,7 +160,7 @@ export default function Services() {
                   <CardTitle className="text-xl mb-2 text-center" data-testid={`text-service-title-${index}`}>{service.title}</CardTitle>
                   <CardDescription className={`text-base ${dir === "rtl" ? "text-right" : "text-left"}`} data-testid={`text-service-description-${index}`}>{service.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <div className="flex flex-wrap gap-2">
                     {service.capabilities.map((capability, capIndex) => (
                       <Badge
