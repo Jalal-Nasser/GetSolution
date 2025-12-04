@@ -176,20 +176,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>{t("home.trustedBy")}</h2>
-          </div>
-          <div className="marquee">
-            <div className="marquee__track">
-              {['/partners/stc.svg','/partners/aramco.svg','/partners/sabic.svg','/partners/stc.svg','/partners/aramco.svg','/partners/sabic.svg'].map((src, i) => (
-                <img key={i} src={src} alt="Partner logo" className="h-12" loading="lazy" />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -149,13 +149,10 @@ export default function Services() {
                 data-testid={`card-service-${index}`}
               >
                 <CardHeader className="flex-1">
-                  <div className="flex items-start justify-between mb-4" dir={dir}>
+                  <div className="flex items-start justify-center mb-4" dir={dir}>
                     <div className="p-3 bg-secondary/10 rounded-lg">
                       <service.icon className="h-6 w-6 text-secondary" data-testid={`icon-service-${index}`} />
                     </div>
-                    <Badge variant="secondary" className="text-xs" data-testid={`badge-code-${index}`}>
-                      {service.code}
-                    </Badge>
                   </div>
                   <CardTitle className="text-xl mb-2 text-center" data-testid={`text-service-title-${index}`}>{service.title}</CardTitle>
                   <CardDescription className={`text-base ${dir === "rtl" ? "text-right" : "text-left"}`} data-testid={`text-service-description-${index}`}>{service.description}</CardDescription>
