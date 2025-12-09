@@ -18,8 +18,8 @@ export const en = {
     apps: "Our Apps",
     contact: "Contact",
     contactInfo: "Contact Information",
-    address: "Riyadh, Saudi Arabia",
-    phone: "+966 12 345 6789",
+    address: "Khobar, Saudi Arabia",
+    phone: "+966540541719",
     email: "info@gscompany.sa",
     copyright: "© {year} GetSolution. All rights reserved. | Privacy Policy | Terms of Service"
   },

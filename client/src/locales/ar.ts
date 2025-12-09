@@ -18,8 +18,8 @@ export const ar = {
     apps: "تطبيقاتنا",
     contact: "اتصل بنا",
     contactInfo: "معلومات الاتصال",
-    address: "الرياض، المملكة العربية السعودية",
-    phone: "+966 12 345 6789",
+    address: "الخبر، المملكة العربية السعودية",
+    phone: "+966540541719",
     email: "info@gscompany.sa",
     copyright: "© {year} GetSolution. جميع الحقوق محفوظة. | سياسة الخصوصية | الشروط والأحكام"
   },
