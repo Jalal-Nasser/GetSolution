@@ -16,7 +16,7 @@ export default function About() {
     let mounted = true;
     (async () => {
       try {
-        const text = await extractPdfText("/GSC-Profilel.pdf");
+        const text = await extractPdfText("/Get_Solution_Company_Profile_Updated.pdf");
         const p = parsePartners(text);
         const c = parseCertifications(text);
         if (mounted) {

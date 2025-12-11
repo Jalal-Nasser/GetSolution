@@ -41,3 +41,25 @@ export function parseCertifications(text: string): string[] {
   const slice = text.slice(pos, pos + 1200);
   return extractList(slice).slice(1, 7);
 }
+
+export function parseHighlights(text: string): string[] {
+  const lower = text.toLowerCase();
+  const anchors = [
+    "solutions",
+    "services",
+    "capabilities",
+    "offerings",
+    "experience",
+    "expertise",
+  ];
+  let best: string[] = [];
+  for (const a of anchors) {
+    const i = lower.indexOf(a);
+    if (i !== -1) {
+      const slice = text.slice(i, i + 1600);
+      const list = extractList(slice);
+      if (list.length > best.length) best = list;
+    }
+  }
+  return best.slice(1, 8);
+}

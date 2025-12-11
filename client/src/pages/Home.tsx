@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2, GraduationCap, Flag, BadgeCheck, Headphones, DollarSign, Handshake, Layers, Trophy, Sparkles, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import heroImage from "@assets/generated_images/corporate_hero_background_image.png";
@@ -31,6 +31,22 @@ export default function Home() {
     { label: "IT Solutions", value: "8" },
     { label: "Global Clients", value: "500+" },
     { label: "Success Rate", value: "99.8%" },
+  ];
+
+  const featureLeft = [
+    { icon: Building2, title: t("home.why.features.industry.title"), description: t("home.why.features.industry.desc") },
+    { icon: GraduationCap, title: t("home.why.features.training.title"), description: t("home.why.features.training.desc") },
+    { icon: Flag, title: t("home.why.features.vision2030.title"), description: t("home.why.features.vision2030.desc") },
+    { icon: BadgeCheck, title: t("home.why.features.iso.title"), description: t("home.why.features.iso.desc") },
+    { icon: Headphones, title: t("home.why.features.support.title"), description: t("home.why.features.support.desc") },
+    { icon: DollarSign, title: t("home.why.features.cost.title"), description: t("home.why.features.cost.desc") },
+    { icon: Trophy, title: t("home.why.features.track.title"), description: t("home.why.features.track.desc") },
+    { icon: Sparkles, title: t("home.why.features.innovation.title"), description: t("home.why.features.innovation.desc") },
+  ];
+  const featureRight = [
+    { icon: Handshake, title: t("home.why.features.partner.title"), description: t("home.why.features.partner.desc") },
+    { icon: Layers, title: t("home.why.features.endtoend.title"), description: t("home.why.features.endtoend.desc") },
+    { icon: MapPin, title: t("home.why.features.market.title"), description: t("home.why.features.market.desc") },
   ];
 
   return (
@@ -179,27 +195,47 @@ export default function Home() {
       
 
       <section className="py-20 bg-primary/5">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" dir={dir}>
+          <div className="text-center mb-10">
             <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-why-choose-title">
               {t("home.whyTitle")}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               {t("home.whySubtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {whyChooseUs.map((item, index) => (
-              <div key={index} className="text-center" data-testid={`stat-${index}`}>
-                <div className="text-4xl font-bold text-secondary mb-2" data-testid={`stat-value-${index}`}>
-                  {item.value}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {featureLeft.map((f, i) => (
+                <div key={`fl-${i}`} className="p-6 bg-background rounded-xl border shadow-md hover-elevate">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <f.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold mb-1" style={{ fontFamily: "Montserrat, sans-serif" }}>{f.title}</div>
+                      <div className="text-sm text-muted-foreground">{f.description}</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-muted-foreground" data-testid={`stat-label-${index}`}>
-                  {item.label}
+              ))}
+            </div>
+            <div className="flex flex-col gap-6">
+              {featureRight.map((f, i) => (
+                <div key={`fr-${i}`} className="p-6 bg-background rounded-xl border shadow-md hover-elevate">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-secondary/10 rounded-lg">
+                      <f.icon className="h-6 w-6 text-secondary" />
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold mb-1" style={{ fontFamily: "Montserrat, sans-serif" }}>{f.title}</div>
+                      <div className="text-sm text-muted-foreground">{f.description}</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

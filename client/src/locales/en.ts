@@ -49,6 +49,56 @@ export const en = {
     trustedBy: "Trusted By",
     whyTitle: "Why Choose Us",
     whySubtitle: "Proven expertise, innovative solutions, and unwavering commitment to excellence",
+    profileHighlightsTitle: "Company Profile Highlights",
+    profileHighlightsSubtitle: "Key offerings and capabilities from our profile",
+    why: {
+      features: {
+        industry: {
+          title: "Industry-Specific Expertise",
+          desc: "Proven solutions across 8 key sectors: Healthcare, Banking, Government, Education, Retail, Manufacturing, Energy, and Telecom."
+        },
+        training: {
+          title: "Comprehensive Training Programs",
+          desc: "Specialized cybersecurity training for students, teachers, employees, government staff, and critical sectors."
+        },
+        vision2030: {
+          title: "Vision 2030 Alignment",
+          desc: "All services designed to support Saudi Vision 2030 objectives and national digital transformation initiatives."
+        },
+        iso: {
+          title: "ISO Certified Quality",
+          desc: "ISO certified processes ensuring international quality and security standards in all service delivery."
+        },
+        support: {
+          title: "24/7 Support",
+          desc: "Round-the-clock technical support and monitoring to ensure optimal system performance and rapid issue resolution."
+        },
+        cost: {
+          title: "Cost-Effective Solutions",
+          desc: "Optimized solutions that reduce complexity, risk, and operational costs while maximizing ROI and business value."
+        },
+        track: {
+          title: "Proven Track Record",
+          desc: "Successful delivery of complex projects for leading enterprises across Saudi Arabia and GCC region."
+        },
+        innovation: {
+          title: "Innovation Focus",
+          desc: "Continuous adoption of emerging technologies to keep clients ahead of competition and drive measurable outcomes."
+        },
+        partner: {
+          title: "Trusted Technology Partner",
+          desc: "Serving leading enterprises with innovative, reliable, and cost-effective IT solutions that reduce complexity and drive digital transformation."
+        },
+        endtoend: {
+          title: "End-to-End Solutions",
+          desc: "Complete technology solutions from strategy and design to implementation, training, support, and continuous optimization."
+        },
+        market: {
+          title: "Local Market Expertise",
+          desc: "Deep understanding of Saudi market requirements, regulations, and cultural context for effective solution delivery."
+        }
+      }
+    },
     ctaTitle: "Ready for Digital Transformation?",
     ctaSubtitle: "Let's discuss how our IT solutions can drive your business growth",
     ctaButton: "CONTACT US TODAY"
