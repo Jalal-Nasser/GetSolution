@@ -95,7 +95,7 @@ shared/
 ## Contact Information
 - **Address**: Olaya Street, Riyadh, Kingdom of Saudi Arabia
 - **Phone**: +966 11 234 5678, +966 55 987 6543
-- **Email**: info@getsolutionit.com
+- **Email**: info@gscompany.sa
 - **Hours**: Sunday - Thursday: 9:00 AM - 6:00 PM
 
 ## Development Workflow

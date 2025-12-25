@@ -106,7 +106,7 @@ export default function Contact() {
                 <span className="text-sm">{t("contact.heroActions.call")}</span>
               </a>
               <a
-                href="mailto:info@getsolutionit.com"
+                href="mailto:info@gscompany.sa"
                 className="group flex items-center gap-2 px-4 py-2 rounded-full border bg-background/80 backdrop-blur hover-elevate active-elevate-2 transition-all"
                 aria-label="Email us"
                 data-testid="hero-action-email"
@@ -347,7 +347,7 @@ export default function Contact() {
                       <div>
                         <CardTitle className="text-lg" data-testid="text-email-title">{t("contact.info.emailTitle")}</CardTitle>
                         <CardDescription className="text-base">
-                          <a href="mailto:info@getsolutionit.com" className="hover:text-primary transition-colors" data-testid="link-email">
+                          <a href="mailto:info@gscompany.sa" className="hover:text-primary transition-colors" data-testid="link-email">
                             {t("contact.info.emailAddress")}
                           </a>
                         </CardDescription>
