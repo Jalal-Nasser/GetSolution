@@ -42,4 +42,6 @@ export class DrizzleStorage implements IStorage {
   }
 }
 
-export const storage = new DrizzleStorage(process.env.DATABASE_URL || "");
+export const storage = process.env.DATABASE_URL
+  ? new DrizzleStorage(process.env.DATABASE_URL)
+  : null;
