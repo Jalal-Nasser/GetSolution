@@ -18,6 +18,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
 
+      if (!process.env.RESEND_API_KEY || !process.env.CONTACT_TO_EMAIL) {
+        return res.status(503).json({
+          error: "Service temporarily unavailable",
+          message: "Missing email configuration: RESEND_API_KEY, CONTACT_TO_EMAIL"
+        });
+      }
+
       if (!storage) {
         return res.status(503).json({
           error: "Service temporarily unavailable",
