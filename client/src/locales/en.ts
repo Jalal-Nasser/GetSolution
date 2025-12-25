@@ -199,7 +199,7 @@ export const en = {
       phone1: "+966 11 234 5678",
       phone2: "+966 55 987 6543",
       emailTitle: "Email",
-      emailAddress: "info@gscompany.sa",
+      emailAddress: "info@getsolutionit.com",
       hoursTitle: "Business Hours",
       hoursText: "Sunday - Thursday: 9:00 AM - 6:00 PM",
       socialTitle: "Connect With Us"

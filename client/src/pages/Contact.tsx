@@ -347,7 +347,7 @@ export default function Contact() {
                       <div>
                         <CardTitle className="text-lg" data-testid="text-email-title">{t("contact.info.emailTitle")}</CardTitle>
                         <CardDescription className="text-base">
-                          <a href="mailto:info@gscompany.sa" className="hover:text-primary transition-colors" data-testid="link-email">
+                          <a href="mailto:info@getsolutionit.com" className="hover:text-primary transition-colors" data-testid="link-email">
                             {t("contact.info.emailAddress")}
                           </a>
                         </CardDescription>
