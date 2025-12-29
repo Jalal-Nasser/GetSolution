@@ -162,11 +162,11 @@ export default function Contact() {
                         )}
                       />
 
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
                             <FormLabel>{t("contact.form.email")}</FormLabel>
                             <FormControl>
                               <div className="relative">
@@ -181,51 +181,51 @@ export default function Contact() {
                         )}
                       />
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t("contact.form.phone")}</FormLabel>
-                            <FormControl>
-                              <div className="relative">
-                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-                                  <Phone className="h-4 w-4" />
-                                </span>
-                                <Input placeholder={localePlaceholderPhone()} className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-phone" />
-                              </div>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>{t("contact.form.phone")}</FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                    <Phone className="h-4 w-4" />
+                                  </span>
+                                  <Input placeholder={localePlaceholderPhone()} className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-phone" />
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t("contact.form.company")}</FormLabel>
-                            <FormControl>
-                              <div className="relative">
-                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-                                  <Building className="h-4 w-4" />
-                                </span>
-                                <Input placeholder={localePlaceholderCompany()} className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-company" />
-                              </div>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                  </div>
+                        <FormField
+                          control={form.control}
+                          name="company"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>{t("contact.form.company")}</FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                                    <Building className="h-4 w-4" />
+                                  </span>
+                                  <Input placeholder={localePlaceholderCompany()} className="pl-9 focus-visible:ring-2 focus-visible:ring-secondary" {...field} data-testid="input-company" />
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
 
-                  <FormField
-                    control={form.control}
-                    name="subject"
-                    render={({ field }) => (
-                      <FormItem>
+                      <FormField
+                        control={form.control}
+                        name="subject"
+                        render={({ field }) => (
+                          <FormItem>
                             <FormLabel>{t("contact.form.subject")}</FormLabel>
                             <FormControl>
                               <div className="relative">
@@ -240,33 +240,33 @@ export default function Contact() {
                         )}
                       />
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("contact.form.message")}</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder={localePlaceholderMessage()}
-                            className="min-h-32 resize-none rounded-xl focus-visible:ring-2 focus-visible:ring-secondary"
-                            {...field}
-                            data-testid="textarea-message"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("contact.form.message")}</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder={localePlaceholderMessage()}
+                                className="min-h-32 resize-none rounded-xl focus-visible:ring-2 focus-visible:ring-secondary"
+                                {...field}
+                                data-testid="textarea-message"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="w-full bg-secondary text-background hover:bg-primary hover:text-primary-foreground"
-                    data-testid="button-submit"
-                  >
-                    {t("contact.form.submit")}
-                  </Button>
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full bg-secondary text-background hover:bg-primary hover:text-primary-foreground"
+                        data-testid="button-submit"
+                      >
+                        {t("contact.form.submit")}
+                      </Button>
                     </form>
                   </Form>
                 </CardContent>
@@ -347,7 +347,7 @@ export default function Contact() {
                       <div>
                         <CardTitle className="text-lg" data-testid="text-email-title">{t("contact.info.emailTitle")}</CardTitle>
                         <CardDescription className="text-base">
-                          <a href="mailto:info@getsolutionit.com" className="hover:text-primary transition-colors" data-testid="link-email">
+                          <a href="mailto:info@gscompany.sa" className="hover:text-primary transition-colors" data-testid="link-email">
                             {t("contact.info.emailAddress")}
                           </a>
                         </CardDescription>

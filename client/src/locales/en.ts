@@ -123,7 +123,7 @@ export const en = {
     capabilities3Desc: "Managed services, monitoring, optimization, and training",
     industriesTitle: "Industries",
     industriesSubtitle: "Serving leading enterprises across Saudi Arabia and the GCC",
-    industryList: ["Government","Energy","Healthcare","Finance","Manufacturing","Education"],
+    industryList: ["Government", "Energy", "Healthcare", "Finance", "Manufacturing", "Education"],
     projectsTitle: "Projects",
     projectsSubtitle: "Selected engagements demonstrating measurable business impact",
     project1Title: "Network Modernization",
@@ -199,7 +199,7 @@ export const en = {
       phone1: "+966 11 234 5678",
       phone2: "+966 55 987 6543",
       emailTitle: "Email",
-      emailAddress: "info@getsolutionit.com",
+      emailAddress: "info@gscompany.sa",
       hoursTitle: "Business Hours",
       hoursText: "Sunday - Thursday: 9:00 AM - 6:00 PM",
       socialTitle: "Connect With Us"

@@ -123,7 +123,7 @@ export const ar = {
     capabilities3Desc: "خدمات مُدارة، مراقبة، تحسين، وتدريب",
     industriesTitle: "القطاعات",
     industriesSubtitle: "نخدم المؤسسات الرائدة في السعودية ودول الخليج",
-    industryList: ["حكومي","طاقة","صحة","تمويل","تصنيع","تعليم"],
+    industryList: ["حكومي", "طاقة", "صحة", "تمويل", "تصنيع", "تعليم"],
     projectsTitle: "المشاريع",
     projectsSubtitle: "نماذج أعمال مختارة ذات أثر تجاري ملموس",
     project1Title: "تحديث الشبكات",
@@ -199,7 +199,7 @@ export const ar = {
       phone1: "+966 11 234 5678",
       phone2: "+966 55 987 6543",
       emailTitle: "البريد الإلكتروني",
-      emailAddress: "info@getsolutionit.com",
+      emailAddress: "info@gscompany.sa",
       hoursTitle: "ساعات العمل",
       hoursText: "الأحد - الخميس: 9:00 صباحًا - 6:00 مساءً",
       socialTitle: "تواصل معنا"
