@@ -1,7 +1,4 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { extractPdfText, parsePartners, parseCertifications } from "@/lib/pdfProfile";
 import { Target, Eye, Award, Users, Shield, TrendingUp } from "lucide-react";
 import aboutHeroImage from "@assets/generated_images/about_page_hero_image.png";
 import teamImage from "@assets/generated_images/team_collaboration_image.png";
@@ -9,24 +6,7 @@ import { useI18n } from "@/lib/i18n";
 
 export default function About() {
   const { t, dir } = useI18n();
-  const [partners, setPartners] = useState<string[]>([]);
-  const [certs, setCerts] = useState<string[]>([]);
-
-  useEffect(() => {
-    let mounted = true;
-    (async () => {
-      try {
-        const text = await extractPdfText("/Get_Solution_Company_Profile_Updated.pdf");
-        const p = parsePartners(text);
-        const c = parseCertifications(text);
-        if (mounted) {
-          setPartners(p);
-          setCerts(c);
-        }
-      } catch (_) { }
-    })();
-    return () => { mounted = false; };
-  }, []);
+  const certifications = ["ISO 27001", "ISO 20000", "Vendor Certified"];
   const values = [
     {
       icon: Award,
@@ -167,21 +147,8 @@ export default function About() {
               {t("about.partnersSubtitle")}
             </p>
           </div>
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: (partners[0] ?? "STC"), logo: "/partners/stc.svg" },
-              { name: (partners[1] ?? "Saudi Aramco"), logo: "/partners/aramco.svg" },
-              { name: (partners[2] ?? "SABIC"), logo: "/partners/sabic.svg" },
-            ].map((item, i) => (
-              <div key={`p-${i}`} className="p-6 bg-background rounded-lg border text-center">
-                <img src={item.logo} alt={item.name} className="mx-auto mb-3 h-12" />
-                <div className="text-xl font-semibold mb-1">{item.name}</div>
-                <div className="text-muted-foreground">{t("about.partnerLabel")}</div>
-              </div>
-            ))}
-          </div> */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            {(certs.length ? certs : ["ISO 27001", "ISO 20000", "Vendor Certified"]).slice(0, 3).map((c, i) => (
+            {certifications.map((c, i) => (
               <div key={`c-${i}`} className="p-6 bg-background rounded-lg border text-center">
                 <div className="text-xl font-semibold mb-1">{c}</div>
                 <div className="text-muted-foreground">{t("about.certifiedLabel")}</div>
