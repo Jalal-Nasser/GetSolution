@@ -23,7 +23,7 @@ export default function About() {
           setPartners(p);
           setCerts(c);
         }
-      } catch (_) {}
+      } catch (_) { }
     })();
     return () => { mounted = false; };
   }, []);
@@ -77,9 +77,9 @@ export default function About() {
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div dir={dir}>
-            <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-story-title">
-              {t("about.storyTitle")}
-            </h2>
+              <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif" }} data-testid="text-story-title">
+                {t("about.storyTitle")}
+              </h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p data-testid="text-story-para-1">{t("about.storyPara1")}</p>
                 <p data-testid="text-story-para-2">{t("about.storyPara2")}</p>
@@ -167,7 +167,7 @@ export default function About() {
               {t("about.partnersSubtitle")}
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { name: (partners[0] ?? "STC"), logo: "/partners/stc.svg" },
               { name: (partners[1] ?? "Saudi Aramco"), logo: "/partners/aramco.svg" },
@@ -179,9 +179,9 @@ export default function About() {
                 <div className="text-muted-foreground">{t("about.partnerLabel")}</div>
               </div>
             ))}
-          </div>
+          </div> */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            {(certs.length ? certs : ["ISO 27001", "ISO 20000", "Vendor Certified"]).slice(0,3).map((c, i) => (
+            {(certs.length ? certs : ["ISO 27001", "ISO 20000", "Vendor Certified"]).slice(0, 3).map((c, i) => (
               <div key={`c-${i}`} className="p-6 bg-background rounded-lg border text-center">
                 <div className="text-xl font-semibold mb-1">{c}</div>
                 <div className="text-muted-foreground">{t("about.certifiedLabel")}</div>
@@ -191,7 +191,7 @@ export default function About() {
         </div>
       </section>
 
-      
+
     </div>
   );
 }
