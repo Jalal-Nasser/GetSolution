@@ -14,16 +14,16 @@ export default function Home() {
   const { t, dir, locale } = useI18n();
   const services = locale === "ar"
     ? [
-        { title: "تحديث الشبكات", code: "NET-101", description: "بنية تحتية آمنة وموثوقة لاتصال سلس" },
-        { title: "تعزيز الابتكار", code: "SFT-202", description: "اعتماد حلول مستقبلية تفتح فرصًا جديدة" },
-        { title: "الأمن السيبراني", code: "CYB-606", description: "تعزيز الأمن وتحسين التكلفة الإجمالية عبر دورة الحياة" },
-        { title: "الحوسبة السحابية", code: "CLD-808", description: "حلول سحابية قابلة للتوسع ومرنة" },
+        { title: "تحديث الشبكات", description: "بنية تحتية آمنة وموثوقة لاتصال سلس" },
+        { title: "تعزيز الابتكار", description: "اعتماد حلول مستقبلية تفتح فرصًا جديدة" },
+        { title: "الأمن السيبراني", description: "تعزيز الأمن وتحسين التكلفة الإجمالية عبر دورة الحياة" },
+        { title: "الحوسبة السحابية", description: "حلول سحابية قابلة للتوسع ومرنة" },
       ]
     : [
-        { title: "Computer Networks", code: "NET-101", description: "Secure and reliable infrastructure for seamless connectivity" },
-        { title: "Boost Innovation", code: "SFT-202", description: "Adopt future‑ready solutions that unlock new opportunities" },
-        { title: "Cybersecurity", code: "CYB-606", description: "Strengthen security and optimize TCO across the lifecycle" },
-        { title: "Cloud Computing", code: "CLD-808", description: "Scalable and flexible cloud solutions" },
+        { title: "Computer Networks", description: "Secure and reliable infrastructure for seamless connectivity" },
+        { title: "Boost Innovation", description: "Adopt future‑ready solutions that unlock new opportunities" },
+        { title: "Cybersecurity", description: "Strengthen security and optimize TCO across the lifecycle" },
+        { title: "Cloud Computing", description: "Scalable and flexible cloud solutions" },
       ];
 
   const whyChooseUs = [
@@ -130,9 +130,6 @@ export default function Home() {
                       index === 2 ? "/services/infrastructure-networks.svg" :
                       index === 3 ? "/services/security.svg" : "/services/business.svg"
                     } size={72} hover />
-                  </div>
-                  <div className="text-sm font-semibold text-secondary mb-2 text-center" data-testid={`text-service-code-${index}`}>
-                    {service.code}
                   </div>
                   <CardTitle className="text-xl text-center" data-testid={`text-service-title-${index}`}>{service.title}</CardTitle>
                 </CardHeader>

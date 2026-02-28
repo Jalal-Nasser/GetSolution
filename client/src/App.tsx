@@ -12,7 +12,7 @@ import NotFound from "@/pages/not-found";
 import Profile from "@/pages/Profile";
 import Apps from "@/pages/Apps";
 
-function Router() {
+function AppRoutes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -31,7 +31,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Layout>
-          <Router />
+          <AppRoutes />
         </Layout>
         <Toaster />
       </TooltipProvider>
