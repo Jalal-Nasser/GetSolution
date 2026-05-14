@@ -301,22 +301,6 @@ export default function Contact() {
                   </CardHeader>
                 </Card>
 
-                <Card data-testid="card-additional-locations">
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-primary/10 rounded-lg">
-                        <MapPin className="h-6 w-6 text-secondary" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">{t("contact.info.locationsTitle")}</CardTitle>
-                        <CardDescription className="text-base">
-                          {t("contact.info.locationsList")}
-                        </CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                </Card>
-
                 <Card data-testid="card-phone-info">
                   <CardHeader>
                     <div className="flex items-center gap-4">
@@ -326,10 +310,7 @@ export default function Contact() {
                       <div>
                         <CardTitle className="text-lg" data-testid="text-phone-title">{t("contact.info.phoneTitle")}</CardTitle>
                         <CardDescription className="text-base space-y-1">
-                          <a href="tel:+966112345678" className="hover:text-primary transition-colors block" data-testid="link-phone">
-                            <span dir="ltr">{t("contact.info.phone1")}</span>
-                          </a>
-                          <a href="tel:+966559876543" className="hover:text-primary transition-colors block" data-testid="link-phone-2">
+                          <a href="tel:+966540541719" className="hover:text-primary transition-colors block" data-testid="link-phone">
                             <span dir="ltr">{t("contact.info.phone2")}</span>
                           </a>
                         </CardDescription>

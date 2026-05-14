@@ -93,8 +93,8 @@ shared/
 - `GET /api/contact/:id` - Get specific inquiry by ID
 
 ## Contact Information
-- **Address**: Olaya Street, Riyadh, Kingdom of Saudi Arabia
-- **Phone**: +966 11 234 5678, +966 55 987 6543
+- **Address**: AL Khobar Cinema Building 31452, Kingdom of Saudi Arabia
+- **Phone**: +966 54 054 1719
 - **Email**: info@gscompany.sa
 - **Hours**: Sunday - Thursday: 9:00 AM - 6:00 PM
 
